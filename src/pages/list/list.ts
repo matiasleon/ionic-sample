@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { ApiProvider } from '../../providers/api/api';
 import { CreatePage } from '../create/create';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
@@ -13,7 +14,11 @@ export class ListPage {
   items: Array<{ title: string, note: string, icon: string }>;
   players: Array<{ name: string, number: number }>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public api: ApiProvider,
+    public events: Events) {
   }
 
   ionViewDidLoad() {
@@ -21,6 +26,10 @@ export class ListPage {
       .subscribe(
       players => this.players = players
       )
+
+      this.events.subscribe('create:player', (player)=> {
+        this.players.push(player);
+      })
   }
 
   itemTapped(event, item) {
