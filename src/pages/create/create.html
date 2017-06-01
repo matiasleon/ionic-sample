@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
+  <div padding>
+    <h3>Ingrese su jugador favorito</h3>
+  </div>
+  <form [formGroup]="playerForm" (ngSubmit)="create()">
+    <ion-item>
+      <ion-label stacked>Nombre</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Numero de camiseta</ion-label>
+      <ion-input type="number" formControlName="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Equipo</ion-label>
+      <ion-input type="text" formControlName="team"></ion-input>
+    </ion-item>
+    <div padding>
+      <button ion-button type="submit" [disabled]="!playerForm.valid" round>Añadir</button>
+    </div>
+  </form>
 
 </ion-content>

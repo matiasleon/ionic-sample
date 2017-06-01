@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the CreatePage page.
@@ -14,11 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  playerForm: FormGroup;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+    this.playerForm = this.formBuilder.group({
+      name:['', Validators.required],
+      number:['', Validators.required],
+      team:['', Validators.required]
+    })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePage');
   }
-
 }
