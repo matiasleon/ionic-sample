@@ -3,18 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>Jugadores</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
+    <button ion-item *ngFor="let player of players" (click)="itemTapped($event, player)">
+      <ion-icon ios="logo-codepen" md="logo-codepen"></ion-icon>
+      {{player.name}}
+      <ion-icon md="md-arrow-forward" item-right></ion-icon>
     </button>
   </ion-list>
+   <ion-fab bottom right>
+   <ion-icon (click)="goTocreatePlayer( )" ios="ios-home" md="md-add" ion-fab></ion-icon>
+ </ion-fab>
 </ion-content>

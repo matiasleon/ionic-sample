@@ -3,16 +3,26 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>Jugador</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </h4>
+  <ion-card>
+    <ion-card-header>
+      <h2 text-center *ngIf="selectedItem">
+        {{selectedItem.title}}
+        <ion-icon [name]="selectedItem.icon"></ion-icon>
+      </h2>
+    </ion-card-header>
+    <ion-card-content>
+      <br>  
+      <h4>
+        En una divertida escena junto a Mirtha Legrand en la apertura de su programa, Marcelo Tinelli le contó a la Chiqui todas
+        sus funciones pendientes en la AFA. Y admitió que, tras dejar la faceta política del mundo del fútbol, "ahora me
+        siento mejor". ¡Mirá!
+      </h4>
+      <button ion-button block (click)="showActions()">Actions</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
